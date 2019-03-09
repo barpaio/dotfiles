@@ -14,9 +14,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
 " Themes
-Plugin 'jpo/vim-railscasts-theme'
-Plugin 'therubymug/vim-pyte'
-Plugin 'powerline/powerline'
+" Plugin 'jpo/vim-railscasts-theme'
+" Plugin 'therubymug/vim-pyte'
+" Plugin 'powerline/powerline'
+Plugin 'drewtempelmeyer/palenight.vim'
 
 " Syntax
 Plugin 'godlygeek/tabular'
@@ -24,6 +25,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'moll/vim-node'
 Plugin 'elzr/vim-json'
 Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
 
 " Ruby and Rails
 Plugin 'tpope/vim-rails'
@@ -36,8 +38,10 @@ Plugin 'tpope/vim-fugitive'
 
 " Functionality
 Plugin 'mileszs/ack.vim'
-Plugin 'rking/ag'
-Plugin 'bling/vim-airline'
+Plugin 'rking/ag.vim'
+" Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdtree'
@@ -58,7 +62,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 " From David
-Plugin 'vim-script/matchit'
+Plugin 'vim-scripts/matchit.zip'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'Townk/vim-autoclose'
@@ -92,12 +96,11 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
 let mapleader = ","
 
 if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptumx;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptumx;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -110,8 +113,10 @@ syntax enable
 set mouse=a
 set ttymouse=xterm2
 set lazyredraw
-color railscasts
-colorscheme railscasts
+set background=dark
+colorscheme palenight
+" color railscasts
+" colorscheme railscasts
 set number
 hi MatchParen cterm=bold ctermfg=yellow ctermbg=none
 set backspace=indent,eol,start " Allow backspace in insert mode
@@ -184,3 +189,8 @@ set linebreak
 set scrolloff=5
 
 " ====== Set Folds ======
+
+
+let g:airline_powerline_fonts = 1  " Automatically populate the airline symbols
+let g:airline#extensions#tabline#enabled = 1  "Smarter tab line
+set updatetime=250
